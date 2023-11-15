@@ -1,6 +1,6 @@
 // Game.js
 import React, { useState, useEffect } from 'react';
-import '/Users/aditigorde/Desktop/Game/game/src/assests/Game.style.css'
+import '/src/assests/Game.style.css'
 
 const Game = ({ rows, columns }) => {
   const [characterPosition, setCharacterPosition] = useState({ row: 0, column: 0 });
