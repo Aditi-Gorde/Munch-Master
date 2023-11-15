@@ -1,6 +1,6 @@
 // GridSizeSelector.js
 import React, { useState } from 'react';
-import '/src/assests/Home.style.css'
+import '../assests/Home.style.css'
 
 const Home = ({ onSelectGridSize }) => {
   const [selectedSize, setSelectedSize] = useState('');
