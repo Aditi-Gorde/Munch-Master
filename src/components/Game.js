@@ -4,6 +4,7 @@ import '/Users/aditigorde/Desktop/Game/game/src/assests/Game.style.css'
 
 const Game = ({ rows, columns }) => {
   const [characterPosition, setCharacterPosition] = useState({ row: 0, column: 0 });
+  const [gameStarted, setGameStarted] = useState(false);
   const [dots, setDots] = useState([{ row: 0, column: 0 }]);
   const [gameOver, setGameOver] = useState(false);
   const [moves,setMoves] = useState(0);
@@ -82,6 +83,10 @@ const Game = ({ rows, columns }) => {
   
 
   const handleKeyDown = (e) => {
+    if (!gameStarted || gameOver) {
+    // If the game hasn't started or is over, do not update the character position
+    return;
+  }
     if (gameOver) return; 
 
     switch (e.key) {
@@ -177,7 +182,10 @@ const Game = ({ rows, columns }) => {
    </div>
       
       <div className='btnDiv'> 
-      <button onClick={generateRandomDots}>Start Game</button>
+      <button onClick={() => {
+  setGameStarted(true);
+  generateRandomDots();
+}}>Start Game</button>
       <button className='spbutton' onClick={togglePanel}>Rules</button>
       <div className={`side-panel ${isPanelOpen ? 'open' : ''}`}>
         <h2>Rules for the game</h2>
